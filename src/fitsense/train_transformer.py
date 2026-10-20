@@ -69,14 +69,16 @@ def main():
         args.model, num_labels=len(LABELS),
         id2label=dict(enumerate(LABELS)), label2id=LABEL2ID)
 
-    out = ROOT / "models" / args.model.split("/")[-1]
+    out = ROOT / "models" / args.model.rstrip("/\\").replace("\\", "/").split("/")[-1]
+    # warmup as a step count works on both Transformers 4.x and 5.x
+    total_steps = int(np.ceil(len(ds_train) / args.batch) * args.epochs)
     targs = TrainingArguments(
         output_dir=str(out),
         num_train_epochs=args.epochs,
         per_device_train_batch_size=args.batch,
         per_device_eval_batch_size=args.batch * 2,
         learning_rate=args.lr,
-        warmup_ratio=0.06,
+        warmup_steps=max(1, int(0.06 * total_steps)),
         weight_decay=0.01,
         eval_strategy="epoch",
         save_strategy="epoch",

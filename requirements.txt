@@ -1,6 +1,7 @@
 pandas>=2.0
 numpy>=1.24
 scikit-learn>=1.3
+scipy>=1.10
 joblib
 torch>=2.1
 transformers>=4.40

@@ -1,0 +1,11 @@
+{
+  "model": "baseline",
+  "products_scored": 594,
+  "products_skipped_few_reviews": 481,
+  "skew_pearson": 0.9338119441151744,
+  "skew_spearman": 0.9207913674399885,
+  "advice_accuracy": 0.7760942760942761,
+  "products_flagged": 233,
+  "flag_precision": 0.8841201716738197,
+  "flag_recall": 0.6602564102564102
+}
