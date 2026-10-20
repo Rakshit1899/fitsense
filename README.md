@@ -43,7 +43,7 @@ UCSD Clothing Fit datasets (Misra, Wan, McAuley, RecSys 2018). Every review has 
 
 | Model | Skew correlation (Spearman) | Advice accuracy | Flag precision | Flag recall |
 |---|---|---|---|---|
-| TF-IDF + LR | | | | |
+| TF-IDF + LR | 0.921 | 0.776 | 0.884 | 0.660 |
 | DistilBERT | | | | |
 
 *Flag precision:* of products the model said run small or large, the share that really did. *Flag recall:* of products that really ran small or large, the share it caught. The advice is deliberately conservative (it needs the skew to clear 2 standard errors), so precision is favored over recall: a wrong "size up" costs a return, a missed one leaves the shopper where they started.
